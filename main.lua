@@ -9,13 +9,14 @@ function love.load()
             field[i][j] = 0
         end
     end
-    love.graphics.setNewFont(15)
+    squareSize = 20
+    love.graphics.setNewFont(0.75*squareSize)
 end
 
 function love.draw()
     for i = 1, field.width do
         for j = 1, field.height do
-            love.graphics.print(field[i][j], i*20, j*20)
+            love.graphics.print(field[i][j], i*squareSize, j*squareSize)
         end
     end
 end
