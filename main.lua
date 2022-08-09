@@ -22,10 +22,23 @@ function love.load()
     love.graphics.setNewFont(0.75*squareSize)
 end
 
+function drawSquare(square, x, y)
+    love.graphics.push()
+    love.graphics.translate(x, y)
+    love.graphics.scale(squareSize)
+    love.graphics.setColor(0.95, 0.95, 0.95)
+    love.graphics.polygon("fill", 0, 0, 0, 1, 1, 0)
+    love.graphics.setColor(0.4, 0.4, 0.4)
+    love.graphics.polygon("fill", 1, 1, 0, 1, 1, 0)
+    love.graphics.setColor(0.75, 0.75, 0.75)
+    love.graphics.rectangle("fill", 0.1, 0.1, 0.8, 0.8)
+    love.graphics.pop()
+end
+
 function love.draw()
     for i = 1, field.width do
         for j = 1, field.height do
-            love.graphics.print(field[i][j], i*squareSize, j*squareSize)
+            drawSquare(field[i][j], (i-1)*squareSize, (j-1)*squareSize)
         end
     end
 end
