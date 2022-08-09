@@ -20,7 +20,10 @@ function love.load()
     for i = 1, field.width do
         field[i] = {}
         for j = 1, field.height do
-            field[i][j] = 0
+            field[i][j] = {
+                isMine = false,
+                adjacentMines = 0
+            }
         end
     end
     love.window.setMode(
