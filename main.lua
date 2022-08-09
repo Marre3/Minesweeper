@@ -5,6 +5,11 @@ function setSquareSize()
 		love.graphics.getHeight() / height,
 		love.graphics.getWidth() / width
 	))
+    love.graphics.setNewFont(0.75*squareSize)
+end
+
+function love.resize()
+	setSquareSize()
 end
 
 function love.load()
@@ -18,8 +23,12 @@ function love.load()
             field[i][j] = 0
         end
     end
+    love.window.setMode(
+        love.graphics.getWidth(),
+        love.graphics.getHeight(),
+        {resizable=true, minwidth=50, minheight=50}
+    )
     setSquareSize()
-    love.graphics.setNewFont(0.75*squareSize)
 end
 
 function drawSquare(square, x, y)
