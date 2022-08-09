@@ -37,7 +37,6 @@ end
 function drawSquare(square, x, y)
     love.graphics.push()
     love.graphics.translate(x, y)
-    love.graphics.scale(squareSize)
     love.graphics.setColor(0.95, 0.95, 0.95)
     love.graphics.polygon("fill", 0, 0, 0, 1, 1, 0)
     love.graphics.setColor(0.4, 0.4, 0.4)
@@ -49,9 +48,10 @@ end
 
 function love.draw()
     love.graphics.translate(love.graphics.getWidth()/2-field.width*squareSize/2, love.graphics.getHeight()/2-field.height*squareSize/2)
+    love.graphics.scale(squareSize)
     for i = 1, field.width do
         for j = 1, field.height do
-            drawSquare(field[i][j], (i-1)*squareSize, (j-1)*squareSize)
+            drawSquare(field[i][j], i-1, j-1)
         end
     end
 end
