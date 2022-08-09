@@ -1,3 +1,12 @@
+function setSquareSize()
+	local width = field.width
+	local height = field.height
+	squareSize = math.floor(math.min(
+		love.graphics.getHeight() / height,
+		love.graphics.getWidth() / width
+	))
+end
+
 function love.load()
     field = {
         width = 20,
@@ -9,7 +18,7 @@ function love.load()
             field[i][j] = 0
         end
     end
-    squareSize = 20
+    setSquareSize()
     love.graphics.setNewFont(0.75*squareSize)
 end
 
