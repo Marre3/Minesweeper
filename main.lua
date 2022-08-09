@@ -45,6 +45,7 @@ function drawSquare(square, x, y)
 end
 
 function love.draw()
+    love.graphics.translate(love.graphics.getWidth()/2-field.width*squareSize/2, love.graphics.getHeight()/2-field.height*squareSize/2)
     for i = 1, field.width do
         for j = 1, field.height do
             drawSquare(field[i][j], (i-1)*squareSize, (j-1)*squareSize)
